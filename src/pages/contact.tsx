@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { Inter } from "next/font/google";
 import Layout from "@/layout/Layout";
+import GeneralContact from "@/components/Forms/Contact/GeneralContact";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,10 +18,7 @@ export default function Contact() {
       <main className={`${inter.className}`}>
         <Layout>
           <div id="contact" className="header-padding-top">
-            <h2>Contact</h2>
-            <p>
-              Find in-depth information about Next.js features and&nbsp;API.
-            </p>
+            <GeneralContact />
           </div>
         </Layout>
       </main>
