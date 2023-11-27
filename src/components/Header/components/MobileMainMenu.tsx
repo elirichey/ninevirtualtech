@@ -54,6 +54,18 @@ export default function MobileMainMenu() {
             </li>
 
             <li onClick={() => setShowMenu(false)}>
+              <Link href="/office-cloud" className="mobile-menu-primary">
+                Office Cloud
+              </Link>
+            </li>
+
+            <li onClick={() => setShowMenu(false)}>
+              <Link href="/consulting" className="mobile-menu-primary">
+                Consulting
+              </Link>
+            </li>
+
+            <li onClick={() => setShowMenu(false)}>
               <Link href="/about" className="mobile-menu-primary">
                 About
               </Link>

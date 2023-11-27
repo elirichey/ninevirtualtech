@@ -18,6 +18,22 @@ export default function Contact() {
       <main className={`${inter.className}`}>
         <Layout>
           <div id="contact" className="header-padding-top">
+            <div className="contact-header">
+              <h1>Get in Touch</h1>
+              <p>
+                {`We're here to help you with all your cloud service needs. Whether
+              you have questions, need assistance, or want to discuss how our
+              cloud solutions can benefit your business, we're just a message
+              away.`}
+              </p>
+
+              <p>
+                {`Please fill out the form below, and we'll get back to you as
+              soon as possible. Your satisfaction is our top priority, and we
+              look forward to assisting you on your cloud journey.`}
+              </p>
+            </div>
+
             <GeneralContact />
           </div>
         </Layout>

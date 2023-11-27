@@ -9,6 +9,14 @@ export default function DesktopMainMenu() {
         </li>
 
         <li className="desktop-main-menu-link">
+          <Link href="/office-cloud">Office Cloud</Link>
+        </li>
+
+        <li className="desktop-main-menu-link">
+          <Link href="/consulting">Consulting</Link>
+        </li>
+
+        <li className="desktop-main-menu-link">
           <Link href="/about">About</Link>
         </li>
 

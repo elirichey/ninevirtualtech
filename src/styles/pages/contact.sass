@@ -1,5 +1,16 @@
 #contact
   background-color: $most_lt_blue
+  .contact-header
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    max-width: 480px
+    margin: 60px auto 30px
+    h1
+      margin-bottom: 15px
+    p
+      margin-top: 15px
   .contact-submission-secondary
     display: flex
     flex-direction: column
@@ -7,5 +18,8 @@
     justify-content: center
     min-width: 480px
     min-height: 519px
-    h3
-      margin: 15px
+
+@media (max-width: 425px)
+  #contact
+    padding-left: 15px
+    padding-right: 15px
