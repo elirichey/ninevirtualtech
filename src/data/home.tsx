@@ -1,4 +1,18 @@
 const HomeData = {
+  services: [
+    {
+      name: "Office Cloud",
+      description:
+        "Office Cloud is a cloud-based solution that provides users with access to email, calendar, contacts, and tasks from any device and any location.",
+    },
+    {
+      name: "Consulting",
+      description:
+        "Nine Virtual Technologies provides consulting services to help you get the most out of your technology investments.",
+    },
+  ],
+
+  // Value Props
   valueProps: [
     //
     {
