@@ -20,9 +20,13 @@ export default function Footer() {
             </Link>
           </div>
 
-          <div className="flex1 column">
-            <span className="footer-title">Help</span>
+          <div className="flex05 column">
+            <span className="footer-title">Company</span>
             <ul>
+              <li>
+                <Link href="/contact">Contact</Link>
+              </li>
+
               <li>
                 <Link href="/faq">FAQ</Link>
               </li>
@@ -30,14 +34,38 @@ export default function Footer() {
           </div>
 
           <div className="flex1 column">
-            <span className="footer-title">Company</span>
-            <ul>
+            <span className="footer-title txt-white">Contact</span>
+            <ul className="contact-methods">
               <li>
-                <Link href="/about">About</Link>
+                <Image
+                  src="/svg/geo-alt.svg"
+                  alt="icon"
+                  height={16}
+                  width={16}
+                />
+                <span>PO Box 1002 Westfield, IN 46074</span>
               </li>
 
               <li>
-                <Link href="/contact">Contact</Link>
+                <Image
+                  src="/svg/telephone.svg"
+                  alt="icon"
+                  height={16}
+                  width={16}
+                />
+                <a href="tel:1-855-464-6388">1-855-464-6388</a>
+              </li>
+
+              <li>
+                <Image
+                  src="/svg/envelope.svg"
+                  alt="icon"
+                  height={16}
+                  width={16}
+                />
+                <a href="mailto:support@ninevirtualtech.com">
+                  support@ninevirtualtech.com
+                </a>
               </li>
             </ul>
           </div>

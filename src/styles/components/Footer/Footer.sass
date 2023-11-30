@@ -30,6 +30,17 @@ footer
     font-weight: 600
     &:hover
       color: $blue
+  span
+    color: $lt_dark
+    font-size: 14px
+    font-weight: 600
+  .txt-white
+    color: $white !important
+  .contact-methods
+    li
+      align-items: center
+    img
+      margin-right: 10px
 
 #footer-bottom
   display: flex
@@ -67,10 +78,6 @@ footer
     .column
       padding-left: 30px
       padding-right: 30px
-    .footer-title
-      justify-content: center
-    li
-      justify-content: center
 
 @media(max-width: 900px)
   #footer-logo
@@ -84,6 +91,15 @@ footer
       flex-direction: column
     ul
       margin-bottom: 30px
+    .flex05
+      ul
+        margin-bottom: 15px
+    .txt-white
+      display: none
+    .footer-title
+      justify-content: center
+    li
+      justify-content: center
 
   #footer-bottom
     height: unset

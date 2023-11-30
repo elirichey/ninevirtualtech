@@ -47,9 +47,11 @@ export default async function Home() {
     heroTitle,
     introBody,
     serviceTitle1,
+    serviceImage1,
     serviceDescription1,
     serviceLink1,
     serviceTitle2,
+    serviceImage2,
     serviceDescription2,
     serviceLink2,
     valuePropositionTitle1,
@@ -72,11 +74,6 @@ export default async function Home() {
     ? `url(http:${dataImage})`
     : placeholderImage;
 
-  const valuePropsIcon1 = null;
-  const valuePropsIcon2 = null;
-  const valuePropsIcon3 = null;
-  const valuePropsIcon4 = null;
-
   return (
     <main className={`${inter.className}`}>
       <Layout>
@@ -88,24 +85,24 @@ export default async function Home() {
           </div>
 
           <div className="container-md column">
-            <div className="overview column">
-              <RichText data={introBody} />
-            </div>
-          </div>
-
-          <div className="container-xmd column">
             <div className="services column">
-              <h3>Services</h3>
               <div className="row">
                 <div className="flex1 column p-15 align-center">
                   <Link href={serviceLink1 || "#"}>
-                    <h5>{serviceTitle1}</h5>
+                    <ExternalImage data={serviceImage1} alt={serviceTitle1} />
                   </Link>
 
+                  <Link href={serviceLink1 || "#"}>
+                    <h5>{serviceTitle1}</h5>
+                  </Link>
                   <RichText data={serviceDescription1} />
                 </div>
 
                 <div className="flex1 column p-15 align-center">
+                  <Link href={serviceLink1 || "#"}>
+                    <ExternalImage data={serviceImage2} alt={serviceTitle2} />
+                  </Link>
+
                   <Link href={serviceLink2 || "#"}>
                     <h5>{serviceTitle2}</h5>
                   </Link>
@@ -113,40 +110,18 @@ export default async function Home() {
                 </div>
               </div>
             </div>
+          </div>
 
-            <div className="partners column">
-              <h3>Partners</h3>
-              <div className="row wrap">
-                {partners.map((partner: any, i: number) => {
-                  const { name, logo, url } = partner.fields;
-                  const partnerLogoUrl = logo?.fields?.file?.url;
-
-                  const partnerLogoImage = partnerLogoUrl
-                    ? `https:${partnerLogoUrl}`
-                    : undefined;
-
-                  return (
-                    <div className="flex1 w25" key={i}>
-                      <a href={url || "#"}>
-                        {partnerLogoImage ? (
-                          <Image
-                            src={partnerLogoImage}
-                            alt={name}
-                            height={300}
-                            width={500}
-                          />
-                        ) : (
-                          name
-                        )}
-                      </a>
-                    </div>
-                  );
-                })}
-              </div>
+          <div className="container-sm column">
+            <div className="overview column">
+              <h2>Unlock the Power of the Cloud</h2>
+              <RichText data={introBody} />
             </div>
+          </div>
 
+          <div className="container-xmd column">
             <div className="values column">
-              <h3>Value Propositions</h3>
+              <h3>What Makes Us Awesome</h3>
               <div className="row">
                 <div className="flex1 column p-15 align-center">
                   <ExternalImage
@@ -183,6 +158,37 @@ export default async function Home() {
                   <h5>{valuePropositionTitle4}</h5>
                   <RichText data={valuePropositionDescription4} />
                 </div>
+              </div>
+            </div>
+
+            <div className="partners column">
+              <h3>Our Wonderful Partners</h3>
+              <div className="row wrap">
+                {partners.map((partner: any, i: number) => {
+                  const { name, logo, url } = partner.fields;
+                  const partnerLogoUrl = logo?.fields?.file?.url;
+
+                  const partnerLogoImage = partnerLogoUrl
+                    ? `https:${partnerLogoUrl}`
+                    : undefined;
+
+                  return (
+                    <div className="flex1 w25" key={i}>
+                      <a href={url || "#"}>
+                        {partnerLogoImage ? (
+                          <Image
+                            src={partnerLogoImage}
+                            alt={name}
+                            height={300}
+                            width={500}
+                          />
+                        ) : (
+                          name
+                        )}
+                      </a>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
