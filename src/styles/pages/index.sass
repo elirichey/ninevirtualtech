@@ -1,3 +1,85 @@
 #home
   flex-direction: column
   background-color: $most_lt_blue
+  h3
+    font-size: 32px
+    line-height: 52px
+    text-align: center
+  .hero
+    width: 100vw
+    min-height: 320px
+    background-size: cover
+    background-repeat: no-repeat
+    background-position: center
+    .container
+      justify-content: center
+    h1
+      color: $white
+      font-size: 3.2rem
+      text-transform: uppercase
+      letter-spacing: 0.2rem
+      text-align: center
+      padding-left: 15px
+      padding-right: 15px
+
+  .overview
+    padding-top: 75px
+    padding-bottom: 60px
+    .container
+      flex-direction: column
+      align-items: center
+    h2
+      font-size: 2.4rem
+      text-align: center
+      padding-left: 15px
+      padding-right: 15px
+    p
+      padding-left: 15px
+      padding-right: 15px
+      padding-bottom: 15px
+
+  .services
+    padding-top: 60px
+    padding-bottom: 60px
+
+  .partners
+    padding-top: 60px
+    padding-bottom: 60px
+    .w25
+      min-width: 210px
+      max-width: 210px
+      padding: 0 15px
+      margin: auto
+
+  .values
+    padding-top: 60px
+    padding-bottom: 60px
+
+  .testimonials
+    padding-top: 60px
+    padding-bottom: 60px
+    .testimonial
+    .author
+      h5
+        font-size: 16px
+        line-height: 24px
+      span
+        font-size: 12px
+        font-weight: 600
+        padding-left: 10px
+        margin-bottom: 30px
+
+// ****** BREAKPOINTS ****** //
+
+@media (max-width: 800px)
+  #home
+    .services
+      .row
+        flex-direction: column
+
+@media (max-width: 475px)
+  #home
+    .partners
+      .w25
+        min-width: 160px
+        max-width: 160px

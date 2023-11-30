@@ -1,7 +1,18 @@
+import { createClient } from "contentful";
 import { Inter } from "next/font/google";
 import Layout from "@/layout/Layout";
+import RichText from "@/components/Renders/RichText";
 
 const inter = Inter({ subsets: ["latin"] });
+
+//async function getData() {
+//  const space = process.env.CONTENTFUL_SPACE_ID || "";
+//  const accessToken = process.env.CONTENTFUL_ACCESS_TOKEN || "";
+//  const content_type = "faq";
+//  const client = createClient({ space, accessToken });
+//  const res: any = await client.getEntries({ content_type });
+//  return res.items[0].fields;
+//}
 
 export default function FAQ() {
   return (
@@ -15,7 +26,7 @@ export default function FAQ() {
           </div>
 
           <div className="container column">
-            <div className="content">Overview</div>
+            <div className="content column">Overview</div>
           </div>
         </div>
       </Layout>
