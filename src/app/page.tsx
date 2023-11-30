@@ -5,6 +5,8 @@ import Link from "next/link";
 import Layout from "@/layout/Layout";
 import RichText from "@/components/Renders/RichText";
 import Image from "next/image";
+import ExternalImage from "@/components/Renders/ExternalImage";
+import TestimonialsSlider from "@/components/Renders/TestimonialsSlider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -147,21 +149,37 @@ export default async function Home() {
               <h3>Value Propositions</h3>
               <div className="row">
                 <div className="flex1 column p-15 align-center">
+                  <ExternalImage
+                    data={valuePropositionIcon1}
+                    alt={valuePropositionTitle1}
+                  />
                   <h5>{valuePropositionTitle1}</h5>
                   <RichText data={valuePropositionDescription1} />
                 </div>
 
                 <div className="flex1 column p-15 align-center">
+                  <ExternalImage
+                    data={valuePropositionIcon2}
+                    alt={valuePropositionTitle2}
+                  />
                   <h5>{valuePropositionTitle2}</h5>
                   <RichText data={valuePropositionDescription2} />
                 </div>
 
                 <div className="flex1 column p-15 align-center">
+                  <ExternalImage
+                    data={valuePropositionIcon3}
+                    alt={valuePropositionTitle3}
+                  />
                   <h5>{valuePropositionTitle3}</h5>
                   <RichText data={valuePropositionDescription3} />
                 </div>
 
                 <div className="flex1 column p-15 align-center">
+                  <ExternalImage
+                    data={valuePropositionIcon4}
+                    alt={valuePropositionTitle4}
+                  />
                   <h5>{valuePropositionTitle4}</h5>
                   <RichText data={valuePropositionDescription4} />
                 </div>
@@ -171,20 +189,8 @@ export default async function Home() {
 
           <div className="container-sm column">
             <div className="testimonials column">
-              <h3>Testimonials</h3>
-              {testimonials.map((testimonial: any, i: number) => {
-                const { name, company, quote } = testimonial.fields;
-
-                return (
-                  <div className="testimonial" key={i}>
-                    <RichText data={quote} />
-                    <div className="author">
-                      <h5>- {name}</h5>
-                      <span>{company}</span>
-                    </div>
-                  </div>
-                );
-              })}
+              <h3>What Our Clients Have To Say</h3>
+              <TestimonialsSlider data={testimonials} />
             </div>
           </div>
         </div>
