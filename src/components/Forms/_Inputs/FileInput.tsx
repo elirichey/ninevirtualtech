@@ -1,6 +1,6 @@
 import Image from "next/image";
-import CheckmarkCircle from "public/icons/CheckmarkCircle";
-import DocumentOutline from "public/icons/DocumentOutline";
+import CheckmarkCircle from "../../Icons/CheckmarkCircle";
+import DocumentOutline from "../../Icons/DocumentOutline";
 
 interface Props {
   id: string;
