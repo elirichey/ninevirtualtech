@@ -2,6 +2,7 @@ import { createClient } from "contentful";
 import { Inter } from "next/font/google";
 import Layout from "@/layout/Layout";
 import RichText from "@/components/Renders/RichText";
+import FaqListItem from "@/components/FaqListItem/FaqListItem";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,13 +32,10 @@ export default async function FAQ() {
   const data = await getData();
   const listItems = await getListItems();
 
-  const { pageTitle, heroTitle, heroBackgroundImage, pageIntro } = data;
+  const { pageTitle, heroTitle, heroBackgroundImage } = data;
 
-  const placeholderImage = "images/office.jpg";
   const dataImage = heroBackgroundImage?.fields?.file?.url;
-  const backgroundImage = dataImage
-    ? `url(http:${dataImage})`
-    : `url(${placeholderImage})`;
+  const backgroundImage = dataImage ? `url(http:${dataImage})` : undefined;
 
   return (
     <main className={`${inter.className}`}>
@@ -46,30 +44,29 @@ export default async function FAQ() {
           <div className="hero" style={{ backgroundImage }}>
             <div className="overlay" />
             <div className="container-sm">
-              <h1>Frequently Asked Questions</h1>
+              <h1>{heroTitle}</h1>
             </div>
           </div>
 
-          <div className="container-sm column intro">
-            <div className="overview">
-              <RichText data={pageIntro} />
-            </div>
-          </div>
-
-          <div className="container-xmd column">
-            <div className="content column">
-              {listItems.length > 0
-                ? listItems.map((item: any, index: number) => {
-                    const { question, answer } = item.fields;
-                    return (
-                      <div key={index} className="item">
-                        <h3>{question}</h3>
-                        <RichText data={answer} />
-                      </div>
-                    );
-                  })
-                : "No FAQs found"}
-            </div>
+          <div className="container-sm column content">
+            {listItems.length > 0 ? (
+              <ul>
+                {listItems.map((item: any, index: number) => {
+                  const { question, answer } = item.fields;
+                  return (
+                    <li key={index}>
+                      <FaqListItem
+                        question={question}
+                        answer={answer}
+                        index={index}
+                      />
+                    </li>
+                  );
+                })}
+              </ul>
+            ) : (
+              "No FAQs found"
+            )}
           </div>
         </div>
       </Layout>
