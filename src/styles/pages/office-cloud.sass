@@ -1,3 +1,128 @@
 #office-cloud
   flex-direction: column
   background-color: $most_lt_blue
+  padding-bottom: 60px
+  h2
+    font-size: 32px
+    line-height: 52px
+    text-align: center
+  .hero
+    width: 100%
+    min-height: 320px
+    background-size: cover
+    background-repeat: no-repeat
+    background-position: center top
+    position: relative
+    .container-sm
+      align-items: center
+      justify-content: center
+      z-index: 1
+    .overlay
+      height: 100%
+      width: 100%
+      position: absolute
+      top: 0
+      bottom: 0
+      left: 0
+      right: 0
+      background-color: rgba(0,0,0,0.65)
+    h1
+      color: $white
+      font-size: 3.2rem
+      text-transform: uppercase
+      letter-spacing: 0.2rem
+      text-align: center
+      padding-left: 15px
+      padding-right: 15px
+  .intro
+  .how-it-works
+    h3
+      font-size: 21px
+      line-height: 36px
+      text-align: center
+  .list-plans
+    margin: 60px auto 30px
+    h3
+      font-size: 32px
+      line-height: 52px
+      text-align: center
+    .plan
+      background-color: $white
+      border: solid 2px $blue
+      border-radius: 15px
+      h4
+        display: flex
+        align-items: center
+        justify-content: center
+        height: 60px
+        font-size: 21px
+        line-height: 36px
+        font-weight: 600
+        text-align: center
+        padding: 20px 15px 0
+      .package
+        height: 40px
+        font-weight: 600
+        align-items: center
+        justify-content: center
+        text-align: center
+        padding: 0 15px
+      .price
+        height: 40px
+        font-size: 14px
+        font-weight: 600
+        align-items: center
+        justify-content: center
+        text-align: center
+        padding: 0 15px
+        margin-bottom: 20px
+      .description
+        padding: 0 15px 15px
+      .includes
+        .title
+          font-size: 18px
+          font-weight: 600
+          text-transform: uppercase
+          letter-spacing: 1px
+          text-align: center
+          background-color: $light
+          padding: 10px 0
+          margin-bottom: 10px
+        ul
+          padding: 0 15px
+        li
+          padding: 15px 0
+          border-bottom: solid 1px $medium
+  .get-started
+    align-items: center
+    justify-content: center
+    a
+      font-size: 16px
+      font-weight: 600
+      text-transform: uppercase
+      letter-spacing: 1px
+      text-align: center
+      background-color: $most_lt_blue
+      color: $blue
+      border: 1px solid $white
+      border-radius: 5px
+      padding: 10px 30px
+      border: solid 2px $blue
+      margin-top: 20px
+      margin-bottom: 60px
+      &:hover
+        background-color: $blue
+        color: $white
+
+// ******* BREAKPOINTS ******* //  
+
+@media (max-width: 1200px)
+  #office-cloud
+    .plan
+      min-width: 350px
+
+@media (max-width: 425px)
+  #office-cloud
+    .plan
+      min-width: 100%
+      margin: 15px 0 15px

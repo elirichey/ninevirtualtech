@@ -1,8 +1,7 @@
 const OfficeCloudData = {
   pageTitle: "Office Cloud",
   overview: "",
-
-  slides: [
+  howItWorks: [
     {
       step: "1",
       title: "We Create Your Personalized vOffice Hosted Desktop",
@@ -26,13 +25,6 @@ const OfficeCloudData = {
       title: "Work With Peace of Mind",
       description:
         "You can work in your vOffice hosted desktop knowing that Nine Virtual Technologies staff is managing your environment. For instance, your virtual desktops can connect to each other. This is important because as your company grows, any new computers you add will match the parameters of the existing units. This way we can save you time, money and trouble in the short term and long term. We provide day-to-day support by telephone, email or our support portal. Your virtual computer service also includes features like virus removal, program support and general assistance for one monthly fee. Should you decide to cancel the service at the end of your term, you’ll never experience a data hostage situation’ since everything you stored with us is returned to you.",
-    },
-  ],
-  howItWorks: [
-    {
-      stepNumber: 1,
-      stepTitle: "Step 1",
-      stepDescription: "",
     },
   ],
   plans: [

@@ -2,10 +2,10 @@
 import "@/styles/globals.sass";
 import { createClient } from "contentful";
 import { Inter } from "next/font/google";
+import Image from "next/image";
 import Link from "next/link";
 import Layout from "@/layout/Layout";
 import RichText from "@/components/Renders/RichText";
-import Image from "next/image";
 import ExternalImage from "@/components/Renders/ExternalImage";
 import TestimonialsSlider from "@/components/Renders/TestimonialsSlider";
 
@@ -84,7 +84,7 @@ export default async function Home() {
       <Layout>
         <div id="home">
           <div className="hero" style={{ backgroundImage }}>
-            <div className="overlay"></div>
+            <div className="overlay" />
             <div className="container">
               <h1>{heroTitle}</h1>
             </div>
