@@ -5,6 +5,10 @@ import RichText from "@/components/Renders/RichText";
 
 const inter = Inter({ subsets: ["latin"] });
 
+// Every hour = 3600 seconds
+const tmout = process.env.CONTENTFUL_REVALIDATE_TIME || "3600";
+export const revalidate = parseInt(tmout);
+
 //async function getData() {
 //  const space = process.env.CONTENTFUL_SPACE_ID || "";
 //  const accessToken = process.env.CONTENTFUL_ACCESS_TOKEN || "";

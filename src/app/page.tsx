@@ -11,6 +11,10 @@ import TestimonialsSlider from "@/components/Renders/TestimonialsSlider";
 
 const inter = Inter({ subsets: ["latin"] });
 
+// Every hour = 3600 seconds
+const tmout = process.env.CONTENTFUL_REVALIDATE_TIME || "3600";
+export const revalidate = parseInt(tmout);
+
 async function getData() {
   const space = process.env.CONTENTFUL_SPACE_ID || "";
   const accessToken = process.env.CONTENTFUL_ACCESS_TOKEN || "";
@@ -69,17 +73,18 @@ export default async function Home() {
     valuePropositionDescription4,
   } = data;
 
-  const placeholderImage = "/images/placeholder-person.png";
+  const placeholderImage = "images/office.jpg";
   const dataImage = heroBackgroundImage?.fields?.file?.url;
   const backgroundImage = dataImage
     ? `url(http:${dataImage})`
-    : placeholderImage;
+    : `url(${placeholderImage})`;
 
   return (
     <main className={`${inter.className}`}>
       <Layout>
         <div id="home">
           <div className="hero" style={{ backgroundImage }}>
+            <div className="overlay"></div>
             <div className="container">
               <h1>{heroTitle}</h1>
             </div>
@@ -89,7 +94,7 @@ export default async function Home() {
             <div className="services column">
               <div className="row">
                 <div className="flex1 column p-15 align-center">
-                  <Link href={serviceLink1 || "#"}>
+                  <Link href={serviceLink1 || "#"} className="service-img">
                     <ExternalImage data={serviceImage1} alt={serviceTitle1} />
                   </Link>
 
@@ -100,7 +105,7 @@ export default async function Home() {
                 </div>
 
                 <div className="flex1 column p-15 align-center">
-                  <Link href={serviceLink1 || "#"}>
+                  <Link href={serviceLink1 || "#"} className="service-img">
                     <ExternalImage data={serviceImage2} alt={serviceTitle2} />
                   </Link>
 
