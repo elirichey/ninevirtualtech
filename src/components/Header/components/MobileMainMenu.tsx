@@ -65,11 +65,11 @@ export default function MobileMainMenu() {
               </Link>
             </li>
 
-            <li onClick={() => setShowMenu(false)}>
+            {/*<li onClick={() => setShowMenu(false)}>
               <Link href="/about" className="mobile-menu-primary">
                 About
               </Link>
-            </li>
+            </li>*/}
 
             <li onClick={() => setShowMenu(false)}>
               <Link href="/faq" className="mobile-menu-primary">

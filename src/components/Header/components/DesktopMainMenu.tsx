@@ -16,9 +16,9 @@ export default function DesktopMainMenu() {
           <Link href="/consulting">Consulting</Link>
         </li>
 
-        <li className="desktop-main-menu-link">
+        {/*<li className="desktop-main-menu-link">
           <Link href="/about">About</Link>
-        </li>
+        </li>*/}
 
         <li className="desktop-main-menu-link">
           <Link href="/faq">FAQ</Link>
