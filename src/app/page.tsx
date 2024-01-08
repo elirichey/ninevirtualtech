@@ -90,34 +90,6 @@ export default async function Home() {
             </div>
           </div>
 
-          <div className="container-md column">
-            <div className="services column">
-              <div className="row">
-                <div className="flex1 column p-15 align-center">
-                  <Link href={serviceLink1 || "#"} className="service-img">
-                    <ExternalImage data={serviceImage1} alt={serviceTitle1} />
-                  </Link>
-
-                  <Link href={serviceLink1 || "#"}>
-                    <h5>{serviceTitle1}</h5>
-                  </Link>
-                  <RichText data={serviceDescription1} />
-                </div>
-
-                <div className="flex1 column p-15 align-center">
-                  <Link href={serviceLink1 || "#"} className="service-img">
-                    <ExternalImage data={serviceImage2} alt={serviceTitle2} />
-                  </Link>
-
-                  <Link href={serviceLink2 || "#"}>
-                    <h5>{serviceTitle2}</h5>
-                  </Link>
-                  <RichText data={serviceDescription2} />
-                </div>
-              </div>
-            </div>
-          </div>
-
           <div className="container-sm column">
             <div className="overview column">
               <h2>Unlock the Power of the Cloud</h2>
@@ -166,7 +138,44 @@ export default async function Home() {
                 </div>
               </div>
             </div>
+          </div>
 
+          <div className="container-md column">
+            <div className="services column">
+              <div className="row">
+                <div className="flex1 column p-15 align-center">
+                  <Link href={serviceLink1 || "#"} className="service-img">
+                    <ExternalImage data={serviceImage1} alt={serviceTitle1} />
+                  </Link>
+
+                  <Link href={serviceLink1 || "#"}>
+                    <h5>{serviceTitle1}</h5>
+                  </Link>
+                  <RichText data={serviceDescription1} />
+                </div>
+
+                <div className="flex1 column p-15 align-center">
+                  <Link href={serviceLink1 || "#"} className="service-img">
+                    <ExternalImage data={serviceImage2} alt={serviceTitle2} />
+                  </Link>
+
+                  <Link href={serviceLink2 || "#"}>
+                    <h5>{serviceTitle2}</h5>
+                  </Link>
+                  <RichText data={serviceDescription2} />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="container-sm column">
+            <div className="testimonials column">
+              <h3>What Our Clients Have To Say</h3>
+              <TestimonialsSlider data={testimonials} />
+            </div>
+          </div>
+
+          <div className="container-xmd column">
             <div className="partners column">
               <h3>Our Wonderful Partners</h3>
               <div className="row wrap">
@@ -196,13 +205,6 @@ export default async function Home() {
                   );
                 })}
               </div>
-            </div>
-          </div>
-
-          <div className="container-sm column">
-            <div className="testimonials column">
-              <h3>What Our Clients Have To Say</h3>
-              <TestimonialsSlider data={testimonials} />
             </div>
           </div>
         </div>
