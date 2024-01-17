@@ -90,120 +90,140 @@ export default async function Home() {
             </div>
           </div>
 
-          <div className="container-sm column">
-            <div className="overview column">
-              <h2>Unlock the Power of the Cloud</h2>
-              <RichText data={introBody} />
-            </div>
-          </div>
-
-          <div className="container-xmd column">
-            <div className="values column">
-              <h3>What Makes Us Awesome</h3>
-              <div className="row">
-                <div className="flex1 column p-15 align-center">
-                  <ExternalImage
-                    data={valuePropositionIcon1}
-                    alt={valuePropositionTitle1}
-                  />
-                  <h5>{valuePropositionTitle1}</h5>
-                  <RichText data={valuePropositionDescription1} />
-                </div>
-
-                <div className="flex1 column p-15 align-center">
-                  <ExternalImage
-                    data={valuePropositionIcon2}
-                    alt={valuePropositionTitle2}
-                  />
-                  <h5>{valuePropositionTitle2}</h5>
-                  <RichText data={valuePropositionDescription2} />
-                </div>
-
-                <div className="flex1 column p-15 align-center">
-                  <ExternalImage
-                    data={valuePropositionIcon3}
-                    alt={valuePropositionTitle3}
-                  />
-                  <h5>{valuePropositionTitle3}</h5>
-                  <RichText data={valuePropositionDescription3} />
-                </div>
-
-                <div className="flex1 column p-15 align-center">
-                  <ExternalImage
-                    data={valuePropositionIcon4}
-                    alt={valuePropositionTitle4}
-                  />
-                  <h5>{valuePropositionTitle4}</h5>
-                  <RichText data={valuePropositionDescription4} />
-                </div>
+          <div id="home-intro">
+            <div className="container-sm column">
+              <div className="overview column">
+                <h2>Unlock the Power of the Cloud</h2>
+                <RichText data={introBody} />
               </div>
             </div>
           </div>
 
-          <div className="container-md column">
-            <div className="services column">
-              <div className="row">
-                <div className="flex1 column p-15 align-center">
-                  <Link href={serviceLink1 || "#"} className="service-img">
-                    <ExternalImage data={serviceImage1} alt={serviceTitle1} />
-                  </Link>
-
-                  <Link href={serviceLink1 || "#"}>
-                    <h5>{serviceTitle1}</h5>
-                  </Link>
-                  <RichText data={serviceDescription1} />
-                </div>
-
-                <div className="flex1 column p-15 align-center">
-                  <Link href={serviceLink1 || "#"} className="service-img">
-                    <ExternalImage data={serviceImage2} alt={serviceTitle2} />
-                  </Link>
-
-                  <Link href={serviceLink2 || "#"}>
-                    <h5>{serviceTitle2}</h5>
-                  </Link>
-                  <RichText data={serviceDescription2} />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="container-sm column">
-            <div className="testimonials column">
-              <h3>What Our Clients Have To Say</h3>
-              <TestimonialsSlider data={testimonials} />
-            </div>
-          </div>
-
-          <div className="container-xmd column">
-            <div className="partners column">
-              <h3>Our Wonderful Partners</h3>
-              <div className="row wrap">
-                {partners.map((partner: any, i: number) => {
-                  const { name, logo, url } = partner.fields;
-                  const partnerLogoUrl = logo?.fields?.file?.url;
-
-                  const partnerLogoImage = partnerLogoUrl
-                    ? `https:${partnerLogoUrl}`
-                    : undefined;
-
-                  return (
-                    <div className="flex1 w25" key={i}>
-                      <a href={url || "#"}>
-                        {partnerLogoImage ? (
-                          <Image
-                            src={partnerLogoImage}
-                            alt={name}
-                            height={300}
-                            width={500}
-                          />
-                        ) : (
-                          name
-                        )}
-                      </a>
+          <div id="home-values">
+            <div className="container-xmd column">
+              <div className="values column">
+                <h3>What Makes Us Awesome</h3>
+                <div className="row">
+                  <div className="flex1 column p-15 align-center">
+                    <div className="img-cover">
+                      <ExternalImage
+                        data={valuePropositionIcon1}
+                        alt={valuePropositionTitle1}
+                      />
                     </div>
-                  );
-                })}
+                    <h5>{valuePropositionTitle1}</h5>
+                    <RichText data={valuePropositionDescription1} />
+                  </div>
+
+                  <div className="flex1 column p-15 align-center">
+                    <div className="img-cover">
+                      <ExternalImage
+                        data={valuePropositionIcon2}
+                        alt={valuePropositionTitle2}
+                      />
+                    </div>
+                    <h5>{valuePropositionTitle2}</h5>
+                    <RichText data={valuePropositionDescription2} />
+                  </div>
+
+                  <div className="flex1 column p-15 align-center">
+                    <div className="img-cover">
+                      <ExternalImage
+                        data={valuePropositionIcon3}
+                        alt={valuePropositionTitle3}
+                      />
+                    </div>
+                    <h5>{valuePropositionTitle3}</h5>
+                    <RichText data={valuePropositionDescription3} />
+                  </div>
+
+                  <div className="flex1 column p-15 align-center">
+                    <div className="img-cover">
+                      <ExternalImage
+                        data={valuePropositionIcon4}
+                        alt={valuePropositionTitle4}
+                      />
+                    </div>
+                    <h5>{valuePropositionTitle4}</h5>
+                    <RichText data={valuePropositionDescription4} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="home-services">
+            <div className="container-md column">
+              <div className="services column">
+                <h3>What We Offer</h3>
+
+                <div className="row">
+                  <div className="flex1 column p-15 align-center">
+                    <Link href={serviceLink1 || "#"} className="service-img">
+                      <ExternalImage data={serviceImage1} alt={serviceTitle1} />
+                    </Link>
+
+                    <Link href={serviceLink1 || "#"}>
+                      <h5>{serviceTitle1}</h5>
+                    </Link>
+                    <RichText data={serviceDescription1} />
+                  </div>
+
+                  <div className="flex1 column p-15 align-center">
+                    <Link href={serviceLink1 || "#"} className="service-img">
+                      <ExternalImage data={serviceImage2} alt={serviceTitle2} />
+                    </Link>
+
+                    <Link href={serviceLink2 || "#"}>
+                      <h5>{serviceTitle2}</h5>
+                    </Link>
+                    <RichText data={serviceDescription2} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="home-testimonials">
+            <div className="container-sm column">
+              <div className="testimonials column">
+                <h3>What Our Clients Have To Say</h3>
+                <TestimonialsSlider data={testimonials} />
+              </div>
+            </div>
+          </div>
+
+          <div id="home-partners">
+            <div className="container-xmd column">
+              <div className="partners column">
+                <h3>Our Wonderful Partners</h3>
+                <div className="row wrap">
+                  {partners.map((partner: any, i: number) => {
+                    const { name, logo, url } = partner.fields;
+                    const partnerLogoUrl = logo?.fields?.file?.url;
+
+                    const partnerLogoImage = partnerLogoUrl
+                      ? `https:${partnerLogoUrl}`
+                      : undefined;
+
+                    return (
+                      <div className="flex1 w25" key={i}>
+                        <a href={url || "#"}>
+                          {partnerLogoImage ? (
+                            <Image
+                              src={partnerLogoImage}
+                              alt={name}
+                              height={300}
+                              width={500}
+                            />
+                          ) : (
+                            name
+                          )}
+                        </a>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div>

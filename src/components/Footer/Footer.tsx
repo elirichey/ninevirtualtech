@@ -11,7 +11,7 @@ export default function Footer() {
           <div id="footer-logo" className="flex1 column">
             <Link href="/">
               <Image
-                src="/svg/logo.svg"
+                src="/svg/logo-white.svg"
                 height={120}
                 width={270}
                 priority

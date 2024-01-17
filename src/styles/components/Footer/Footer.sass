@@ -1,12 +1,13 @@
 footer
   display: flex
   position: relative
-  background-color: $white
+  background-color: $blackest // $white
   flex-direction: column
   z-index: 0
 
 #footer-main
   display: flex
+  background-color: $blackest // $white
   padding-top: 60px
   padding-bottom: 60px
   .hide-desktop
@@ -24,18 +25,20 @@ footer
     display: flex
     padding-top: 7px
     padding-bottom: 7px
+    img
+      filter: invert(1)
   a
-    color: $lt_dark
+    color: $most_lt_blue // $white
     font-size: 14px
     font-weight: 600
     &:hover
       color: $blue
   span
-    color: $lt_dark
+    color: $most_lt_blue // $white
     font-size: 14px
     font-weight: 600
   .txt-white
-    color: $white !important
+    color: $blackest !important // $white
   .contact-methods
     li
       align-items: center
@@ -44,7 +47,7 @@ footer
 
 #footer-bottom
   display: flex
-  background-color: $lt_dark
+  background-color: $blue // #blackest
   height: 44px
 
 #footer-logo
@@ -61,7 +64,7 @@ footer
       filter: saturate(2)
 
 #footer-copyright
-  color: $gray
+  color: $white // $gray
   font-size: 14px
   align-items: center
   justify-content: center

@@ -1,13 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import emailjs from "@emailjs/browser";
 import isEmail from "validator/lib/isEmail";
 import { useState, useEffect, useRef } from "react";
-import { formatContactFormPayload } from "@/utilities/validations/GeneralContactFormValidator";
+// import { formatContactFormPayload } from "@/utilities/validations/GeneralContactFormValidator";
 import Input from "../_Inputs/Input";
 import Textarea from "../_Inputs/Textarea";
 import PhoneInput from "../_Inputs/PhoneInput";
+import { useForm, ValidationError } from "@formspree/react";
 
 interface ContactFormValues {
   name: string;
@@ -18,11 +18,9 @@ interface ContactFormValues {
 
 export default function GeneralContact() {
   const form = useRef(null);
+  const [state, handleSubmit] = useForm("xoqgvrpl");
 
   const [loading, setLoading] = useState<boolean>(false);
-
-  const [submissionMessage, setSubmissionMessage] = useState<string>("");
-  const [submissionError, setSubmissionError] = useState<string>("");
 
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -61,20 +59,14 @@ export default function GeneralContact() {
     else if (messageComplete) setMessageComplete(false);
   }, [message, messageComplete]);
 
-  const clearError = () => {
-    setSubmissionMessage("");
-    setSubmissionError("");
-  };
-
   const clearForm = () => {
     setName("");
     setEmail("");
     setSubject("");
     setMessage("");
-    setSubmissionMessage("");
-    setSubmissionError("");
   };
 
+  /*
   const submitForm = async (e: any) => {
     e.preventDefault();
 
@@ -84,8 +76,6 @@ export default function GeneralContact() {
 
     const timeout = 600;
     setLoading(true);
-    setSubmissionMessage("");
-    setSubmissionError("");
 
     return emailjs
       .send(
@@ -99,25 +89,20 @@ export default function GeneralContact() {
           console.log({ result });
           return setTimeout(() => {
             clearForm();
-            setSubmissionMessage(result.text);
             setLoading(false);
           }, timeout);
         },
         (error) => {
           console.log({ error });
-          return setTimeout(() => {
-            setSubmissionMessage("");
-            setSubmissionError(error.text);
-            setLoading(false);
-          }, timeout);
+          return setTimeout(() => setLoading(false), timeout);
         }
       );
   };
+  */
 
   const formIsComplete =
     nameComplete && emailComplete && subjectComplete && messageComplete;
-  const isSuccessful = submissionMessage === "OK";
-  const hasError = submissionError.trim() !== "";
+  const isSuccessful = state.succeeded;
 
   return (
     <>
@@ -146,21 +131,12 @@ export default function GeneralContact() {
         </div>
       ) : null}
 
-      {hasError ? (
-        <div className="contact-submission-secondary">
-          <h3>Submission Error</h3>
-          <span onClick={clearError} className="submit_btn">
-            Try Again
-          </span>
-        </div>
-      ) : null}
-
-      {!hasError && !isSuccessful ? (
+      {!isSuccessful ? (
         <>
           <form
             id="general-contact-form"
             className={loading ? "form loading" : "form"}
-            onSubmit={submitForm}
+            onSubmit={handleSubmit}
             ref={form}
           >
             {loading ? (
@@ -185,6 +161,11 @@ export default function GeneralContact() {
                   label="Name"
                   // error={nameError ? nameError.message : null}
                 />
+                <ValidationError
+                  prefix="Name"
+                  field="name"
+                  errors={state.errors}
+                />
 
                 <Input
                   name="email"
@@ -195,6 +176,11 @@ export default function GeneralContact() {
                   isComplete={emailComplete}
                   label="Email"
                   // error={emailError ? emailError.message : null}
+                />
+                <ValidationError
+                  prefix="Email"
+                  field="email"
+                  errors={state.errors}
                 />
 
                 <PhoneInput
@@ -209,6 +195,11 @@ export default function GeneralContact() {
                   isComplete={phoneComplete}
                   // error={phoneError ? phoneError.message : null}
                 />
+                <ValidationError
+                  prefix="Phone"
+                  field="phone"
+                  errors={state.errors}
+                />
 
                 <Input
                   name="subject"
@@ -219,6 +210,11 @@ export default function GeneralContact() {
                   isComplete={subjectComplete}
                   label="Subject"
                   // error={subjectError ? subjectError.message : null}
+                />
+                <ValidationError
+                  prefix="Subject"
+                  field="subject"
+                  errors={state.errors}
                 />
 
                 <Textarea
@@ -231,13 +227,18 @@ export default function GeneralContact() {
                   rows={6}
                   // error={messageError ? messageError.message : null}
                 />
+                <ValidationError
+                  prefix="Message"
+                  field="message"
+                  errors={state.errors}
+                />
 
                 <div className="row">
                   <div className="flex1 column">
                     <button
-                      onClick={submitForm}
+                      type="submit"
                       className="submit_btn"
-                      disabled={!formIsComplete}
+                      disabled={!formIsComplete || state.submitting}
                     >
                       Submit
                     </button>
