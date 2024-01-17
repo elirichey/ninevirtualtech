@@ -61,9 +61,15 @@ export default function GeneralContact() {
 
   const clearForm = () => {
     setName("");
+    setNameComplete(false);
     setEmail("");
+    setEmailComplete(false);
+    setPhone("");
+    setPhoneComplete(false);
     setSubject("");
+    setSubjectComplete(false);
     setMessage("");
+    setMessageComplete(false);
   };
 
   /*
@@ -124,7 +130,7 @@ export default function GeneralContact() {
 
             <p className="text-center my-10">Your submission was successful</p>
 
-            <span className="reset-form" onClick={clearForm}>
+            <span className="reset-form" onClick={() => clearForm()}>
               Reset
             </span>
           </div>
